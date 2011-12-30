@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Candido <candido1212@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: application/controllers/site.php:38
+msgid "About"
+msgstr "Sobre (ES)"
+
+#: application/controllers/site.php:43
+msgid "About Us"
+msgstr "Sobre Nosotros"
+
+#: application/controllers/site.php:33
+msgid "Contact"
+msgstr "Contacto"
+
+#: application/controllers/site.php:26
+msgid "Index"
+msgstr "Índice (ES)"
+
+#: application/controllers/product.php:17
+#: application/controllers/admin.php:32
+msgid "manage"
+msgstr "gerenciar (ES)"
+

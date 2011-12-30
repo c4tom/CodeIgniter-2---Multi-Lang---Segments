@@ -1,0 +1,19 @@
+#: application/controllers/site.php:38
+msgid   "About"
+msgstr  ""
+
+#: application/controllers/site.php:43
+msgid   "About Us"
+msgstr  ""
+
+#: application/controllers/site.php:33
+msgid   "Contact"
+msgstr  ""
+
+#: application/controllers/site.php:26
+msgid   "Index"
+msgstr  ""
+
+#: application/controllers/product.php:17 application/controllers/admin.php:32
+msgid   "manage"
+msgstr  ""

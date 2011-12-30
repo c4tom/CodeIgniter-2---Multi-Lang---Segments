@@ -1,0 +1,93 @@
+PORTUGUESE
+
+Date: 25/12/2011
+Author: Candido H. Tominaga <candido1212 at gmail dot com>
+Tested on:
+	- Ubuntu 10.04
+	- PHP 5.3.2
+	- Apache/2.2.14
+	- Module PHP - gettext
+	- Codeigniter 2.1
+	
+
+Projeto para internacionalização de sites com multiplos idiomas e usando tradução das URLs como nos exemplos abaixo.
+
+Exemplo:
+http://meusite.com/multilang-segments/index.php/pt_BR/sitio/quem_somos/45453453
+http://meusite.com/multilang-segments/index.php/en/site/about_us/45453453
+http://meusite.com/multilang-segments/index.php/es/sitio/sobre_nosotros/45453453
+
+
+
+Observação:
+- Se o segmento 1, não for nenhum idioma, mas se existir um controller com este nome, pode ser mostrado o conteudo normalmente
+- Se o segmento 1 for um idioma, e o segmento 2 _nao_ for um method mapeado, então é verificado se ele é um arquivo de controller, se for, mostra o conteudo normalmente, 
+
+Você poderá usar controllers e method não mapeados como:
+http://meusite.com/multilang-segments/index.php/pt_BR/admin
+http://meusite.com/multilang-segments/index.php/pt_BR/admin/test
+
+http://meusite.com/multilang-segments/index.php/en/admin
+http://meusite.com/multilang-segments/index.php/en/admin/test
+
+http://meusite.com/multilang-segments/index.php/es/admin
+http://meusite.com/multilang-segments/index.php/es/admin/test
+
+
+
+INSTALAÇÃO
+Baixe o framework codeigniter 2.1, então copie estes arquivos para dentro da pasta do codeigniter. Observe a estrutura padrão.
+
+
+Após o index.php, os segmentos:
+1 - pt_BR (idioma, lang = en,pt_BR,es...)
+2 - nome do controller
+3 - nome do method
+
+obs: Se você usar o idioma 'es' e não estiver funcionando, então, no linux, você vai ter que criar um link simbolico em /usr/lib/locale
+> cd /usr/lib/locale; ln -sf es_ES es
+ou então ao invés de usar 'es' use 'es_ES'
+
+
+Importante:
+No arquivo application/config/multilangsegments.php adicione:
+Para cada controller e method você deve mapea-los no array abaixo
+
+$config['default_lang'] = 'pt_BR';
+$config['lang_avaliable'] = array('en','pt_BR','es'); // See table codes
+
+$config['i18n_path_locales'] = getcwd(). '/locales'; // Where PO files are localized
+$config['i18n_domain'] = 'messages'; // Used in gettext
+$config['i18n_codeset'] = 'UTF-8';
+
+$config['multilang_map']['controller']['pt_BR'] = array(
+	'sitio'	=> 'site',
+	'produto' => 'product',
+	'empresa' => 'company',
+	'usuario' => 'user'
+);
+$config['multilang_map']['method']['pt_BR'] = array(
+	'sobre' => 'about',
+	'quem_somos' => 'about_us',
+	'contato'	=> 'contact'
+);
+
+$config['multilang_map']['controller']['es'] = array(
+	'sitio'	=> 'site',
+	'producto' => 'product',
+	'empresa' => 'company',
+	'usuario' => 'user'
+);
+$config['multilang_map']['method']['es'] = array(
+	'sobre' => 'about',
+	'sobre_nosotros' => 'about_us',
+	'contacto'	=> 'contact'
+);
+
+
+
+
+Para gerar os arquivos PO, na linha de comando no Linux, execute extract.sh
+
+
+SUGESTÕES??? Correção de BUG? FORK este projeto ou Envie um email
